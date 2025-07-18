@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2021",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "lib": ["es2021"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@types/*": ["src/types/*"],
+      "@db/*": ["src/db/*"]
+    }
+  },
+  "include": ["src/**/*", "src/types/**/*.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}
