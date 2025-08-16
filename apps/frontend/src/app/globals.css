@@ -1,0 +1,524 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Light Theme Colors */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: #3b82f6;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Extended color palette for better components */
+  --surface: #ffffff;
+  --surface-elevated: #f8fafc;
+  --surface-hover: #f1f5f9;
+  --success: #10b981;
+  --success-foreground: #ffffff;
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  --info: #06b6d4;
+  --info-foreground: #ffffff;
+}
+
+.dark {
+  /* AMOLED Dark Theme - True Black for OLED displays */
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --popover: #111111;
+  --popover-foreground: #ffffff;
+  --primary: #5865f2;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #a0a0a0;
+  --accent: #1a1a1a;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #1a1a1a;
+  --ring: #5865f2;
+  --chart-1: #5865f2;
+  --chart-2: #57f287;
+  --chart-3: #fee75c;
+  --chart-4: #ff4444;
+  --chart-5: #eb459e;
+  --sidebar: #000000;
+  --sidebar-foreground: #cccccc;
+  --sidebar-primary: #5865f2;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #0f0f0f;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #333333;
+  --sidebar-ring: #5865f2;
+
+  /* Extended dark theme colors */
+  --surface: #0a0a0a;
+  --surface-elevated: #111111;
+  --surface-hover: #1a1a1a;
+  --success: #00ff88;
+  --success-foreground: #000000;
+  --warning: #ffaa00;
+  --warning-foreground: #000000;
+  --info: #00ccff;
+  --info-foreground: #000000;
+
+  /* Component-specific dark colors */
+  --file-background: #0a0a0a;
+  --file-hover: #1a1a1a;
+  --file-selected: #5865f2;
+  --transfer-background: #111111;
+  --transfer-progress: #5865f2;
+  --transfer-complete: #00ff88;
+  --transfer-error: #ff4444;
+  --input-background: #1a1a1a;
+  --input-border: #333333;
+  --input-focus: #5865f2;
+  --input-placeholder: #666666;
+
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Compact Mode Styles */
+.compact {
+  --spacing-base: 0.75;
+}
+
+.compact .p-4 {
+  @apply p-3;
+}
+
+.compact .p-6 {
+  @apply p-4;
+}
+
+.compact .p-8 {
+  @apply p-6;
+}
+
+.compact .py-6 {
+  @apply py-4;
+}
+
+.compact .gap-3 {
+  @apply gap-2;
+}
+
+.compact .gap-4 {
+  @apply gap-3;
+}
+
+.compact .text-2xl {
+  @apply text-xl;
+}
+
+.compact .h-12 {
+  @apply h-10;
+}
+
+.compact .h-16 {
+  @apply h-12;
+}
+
+/* Theme Transition */
+.theme-transition,
+.theme-transition *,
+.theme-transition *:before,
+.theme-transition *:after {
+  transition: background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease !important;
+  transition-delay: 0s !important;
+}
+
+/* Hide hidden files unless showHiddenFiles is true */
+.file-item[data-hidden="true"] {
+  display: none;
+}
+
+.show-hidden-files .file-item[data-hidden="true"] {
+  display: block;
+  opacity: 0.6;
+}
+
+/* Transfer notification styles */
+.transfer-notification {
+  @apply bg-blue-50 border-blue-200 text-blue-800;
+}
+
+.dark .transfer-notification {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}
+
+/* Enhanced Dark Theme Component Styles */
+.dark .bg-white {
+  background-color: var(--card);
+}
+
+.dark .text-gray-900 {
+  color: var(--foreground);
+}
+
+.dark .text-gray-500 {
+  color: var(--muted-foreground);
+}
+
+.dark .text-gray-600 {
+  color: var(--muted-foreground);
+}
+
+.dark .text-gray-700 {
+  color: var(--foreground);
+}
+
+.dark .border-gray-200 {
+  border-color: var(--border);
+}
+
+.dark .border-gray-100 {
+  border-color: var(--border);
+}
+
+.dark .bg-gray-50 {
+  background-color: var(--surface);
+}
+
+.dark .bg-gray-100 {
+  background-color: var(--surface-elevated);
+}
+
+.dark .hover\:bg-gray-50:hover {
+  background-color: var(--surface-hover);
+}
+
+.dark .hover\:bg-gray-200:hover {
+  background-color: var(--surface-hover);
+}
+
+/* File Grid/List Dark Mode */
+.dark .file-card {
+  background-color: var(--file-background);
+}
+
+.dark .file-card:hover {
+  background-color: var(--file-hover);
+}
+
+.dark .file-card.selected {
+  border-color: var(--file-selected);
+}
+
+/* Settings Page Dark Mode */
+.dark .settings-section {
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+.dark .settings-item {
+  background-color: var(--surface-elevated);
+}
+
+.dark .settings-item:hover {
+  background-color: var(--surface-hover);
+}
+
+/* Input Dark Mode */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: var(--input-background);
+  border-color: var(--input-border);
+  color: var(--foreground);
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: var(--input-placeholder);
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 1px var(--input-focus);
+}
+
+/* Button Dark Mode */
+.dark .btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.dark .btn-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.dark .btn-destructive {
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
+}
+
+/* Modal/Popover Dark Mode */
+.dark .modal,
+.dark .popover {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  border-color: var(--border);
+}
+
+/* Shadow adjustments for AMOLED dark mode */
+.dark .shadow-sm {
+  box-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.dark .shadow-md {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px rgba(255, 255, 255, 0.15);
+}
+
+.dark .shadow-xl {
+  box-shadow: 0 20px 25px rgba(255, 255, 255, 0.15);
+}
+
+/* Scrollbar Dark Mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Debug mode styles */
+.debug-mode {
+  position: relative;
+}
+
+.debug-mode::before {
+  content: "DEBUG";
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #ef4444;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Storage alert styles */
+.storage-alert {
+  @apply bg-yellow-50 border-yellow-200 text-yellow-800;
+}
+
+.dark .storage-alert {
+  background-color: rgba(255, 170, 0, 0.15);
+  border-color: rgba(255, 170, 0, 0.3);
+  color: #ffaa00;
+}
+
+.storage-alert.critical {
+  @apply bg-red-50 border-red-200 text-red-800;
+}
+
+.dark .storage-alert.critical {
+  background-color: rgba(255, 68, 68, 0.15);
+  border-color: rgba(255, 68, 68, 0.3);
+  color: #ff4444;
+}
+
+/* AMOLED Dark Mode Enhancements */
+.dark {
+  /* AMOLED Pure Black Enhancement */
+  --amoled-glow: rgba(88, 101, 242, 0.3);
+  --amoled-accent-glow: rgba(0, 255, 136, 0.2);
+}
+
+/* Seamless UI - Invisible Borders */
+.dark .invisible-border {
+  border: none;
+  box-shadow: none;
+}
+
+/* Subtle hover effects for seamless design */
+.dark .seamless-hover:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* AMOLED Glow Effects */
+.dark .file-card:hover {
+  box-shadow: 0 4px 12px var(--amoled-glow);
+}
+
+.dark .btn-primary {
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+}
+
+.dark .btn-primary:hover {
+  box-shadow: 0 0 30px rgba(88, 101, 242, 0.6);
+}
+
+/* AMOLED Borders with subtle glow */
+.dark .border {
+  border-color: #333333;
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Remove all visible separators for seamless design */
+.dark .no-separator {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Enhanced scrollbar for AMOLED */
+.dark ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+/* AMOLED Text Enhancement */
+.dark .text-foreground {
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* AMOLED Input Focus Enhancement */
+.dark input:focus,
+.dark textarea:focus {
+  box-shadow: 0 0 0 2px var(--input-focus), 0 0 20px rgba(88, 101, 242, 0.3);
+}
+
+/* Seamless sidebar design */
+.dark .sidebar-seamless {
+  background: var(--background);
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Invisible navigation borders */
+.dark .nav-seamless {
+  border: none;
+  background: transparent;
+}
+
+.dark .nav-seamless:hover {
+  background: rgba(255, 255, 255, 0.03);
+}

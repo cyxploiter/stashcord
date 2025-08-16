@@ -1,0 +1,17 @@
+{
+  "name": "stashcord",
+  "version": "1.0.0",
+  "description": "A cloud storage service with a file-explorer UI styled like Discord, using Discord's infrastructure for file storage.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "build": "pnpm --filter \"./apps/*\" build",
+    "heroku-postbuild": "pnpm install --prefix apps/frontend && pnpm install --prefix apps/backend && pnpm run build",
+    "dev:backend": "pnpm --filter backend dev",
+    "dev:frontend": "pnpm --filter frontend dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@9.5.0"
+}
